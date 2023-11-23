@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- github.com/gnunn-gitops/cluster-config/bootstrap/overlays/local.home?ref=v1.0.7
+
+ # Patch Applications for commit pinning
+patches:
+  - target:
+      kind: Application
+      labelSelector: repo=cluster-config
+    patch: |-
+      - op: replace
+        path: /spec/source/targetRevision
+        value: v1.0.7
+  - target:
+      kind: Application
+      labelSelector: repo=gitops-catalog
+    patch: |-
+      - op: replace
+        path: /spec/source/targetRevision
+        value: dc6a546e76b28dcaaa8ba2127d20dd24973bf540
