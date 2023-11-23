@@ -1,6 +1,6 @@
 ### Introduction
 
-This repository is used to manage commit pins to enable promotion of changes across clusters. The repo
+This repository is used to manage commit pins to enable promotion of changes across my homelab clusters. The repo
 retrieves the application objects from the cluster-config repository and then patches them to use
 specific commit hashes or tags to "pin" the application to a specific revision.
 
